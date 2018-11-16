@@ -13,10 +13,7 @@ class SongsController < ApplicationController
 
     artist = Artist.find_or_create_by(name: params["artist_name"])
   @song = Song.create(name: params["name"], artist: artist)
-
-
     redirect to '/songs/:slug'
-
   end
 
   get '/songs/:slug' do
