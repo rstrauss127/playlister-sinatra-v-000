@@ -10,10 +10,12 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-    genre = Genre.find_by_id(params["genres"].to_i)
+
     artist = Artist.find_or_create_by(name: params["artist_name"])
+        genre = Genre.find_by_id(params["genres"].to_i)
+        binding.pry
     @song = Song.create(name: params["name"], artist: artist)
-    
+
     redirect '/songs/:slug'
 
   end
